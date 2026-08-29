@@ -12,13 +12,11 @@ body {
 
 body {
   min-height: 100vh;
-
-  background-image: url("assets/nya_cat_haydiroket.gif");
+  background-image: url("assets/spining_square_Erica_Anderson.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: black;
-
   color: white;
 }
 
@@ -62,4 +60,128 @@ nav a:hover {
 
 .home {
   min-height: 100vh;
+}
+
+/* WINDOWS 98 TASKBAR */
+
+:root {
+  --win-gray: #c0c0c0;
+  --win-white: #ffffff;
+  --win-dark-gray: #808080;
+  --win-black: #000000;
+}
+
+.win-taskbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1000;
+
+  height: 34px;
+  padding: 3px;
+
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+
+  background: var(--win-gray);
+
+  border-top: 1px solid var(--win-white);
+
+  box-shadow:
+    inset 0 1px 0 var(--win-white);
+}
+
+.win-button {
+  min-width: 70px;
+
+  padding: 2px 7px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  background: var(--win-gray);
+  color: black;
+
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  font-size: 11px;
+
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+
+  cursor: pointer;
+}
+
+.win-button.active {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+
+  background: #b8b8b8;
+
+  font-weight: bold;
+}
+
+.start-button {
+  min-width: 72px;
+}
+
+.start-icon {
+  font-size: 14px;
+}
+
+.taskbar-divider {
+  width: 3px;
+
+  margin: 1px 2px;
+
+  border-left: 1px solid var(--win-dark-gray);
+  border-right: 1px solid var(--win-white);
+}
+
+.task-button {
+  min-width: 150px;
+  max-width: 200px;
+
+  justify-content: flex-start;
+
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.task-icon {
+  font-size: 12px;
+}
+
+.taskbar-spacer {
+  flex: 1;
+}
+
+.taskbar-clock {
+  min-width: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2px 8px;
+
+  color: black;
+
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  font-size: 11px;
+
+  border-top: 2px solid var(--win-dark-gray);
+  border-left: 2px solid var(--win-dark-gray);
+
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
 }

@@ -6,6 +6,7 @@
   <title>TRINITY</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <header class="topbar">
@@ -22,30 +23,29 @@
 
   <main class="home"></main>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TRINITY</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  <div class="win-taskbar">
 
-  <header class="topbar">
-    <div class="logo">TRINITY</div>
+    <button class="win-button start-button">
+      <span class="start-icon">▣</span>
+      <strong>Start</strong>
+    </button>
 
-    <nav>
-      <a href="#">Members Only</a>
-      <a href="#">Projects</a>
-      <a href="#">Radio</a>
-      <a href="#">About</a>
-      <a href="#">Tests</a>
-    </nav>
-  </header>
+    <div class="taskbar-divider"></div>
 
-  <main class="home"></main>
+    <button class="win-button task-button active">
+      <span class="task-icon">◉</span>
+      <span>TRINITY</span>
+    </button>
+
+    <div class="taskbar-spacer"></div>
+
+    <div class="taskbar-clock" id="taskbarClock">
+      12:00 PM
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
