@@ -11,7 +11,15 @@ body {
 }
 
 body {
-  background: black;
+  min-height: 100vh;
+
+  background-image: url("assets/nya_cat_haydiroket.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+
+  color: white;
 }
 
 .topbar {
@@ -28,8 +36,8 @@ body {
 
   padding: 18px 12px;
 
-  background: white;
-  color: black;
+  background: transparent;
+  color: white;
 }
 
 .logo {
@@ -42,17 +50,16 @@ nav {
 }
 
 nav a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 12px;
   text-transform: uppercase;
 }
 
+nav a:hover {
+  opacity: 0.65;
+}
+
 .home {
   min-height: 100vh;
-
-  background-image: url("assets/nya_cat_haydiiroket.gif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
