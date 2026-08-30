@@ -90,8 +90,7 @@ nav a:hover {
 
   border-top: 1px solid var(--win-white);
 
-  box-shadow:
-    inset 0 1px 0 var(--win-white);
+  box-shadow: inset 0 1px 0 var(--win-white);
 }
 
 .win-button {
@@ -111,7 +110,6 @@ nav a:hover {
 
   border-top: 2px solid var(--win-white);
   border-left: 2px solid var(--win-white);
-
   border-right: 2px solid var(--win-black);
   border-bottom: 2px solid var(--win-black);
 
@@ -121,7 +119,6 @@ nav a:hover {
 .win-button.active {
   border-top: 2px solid var(--win-black);
   border-left: 2px solid var(--win-black);
-
   border-right: 2px solid var(--win-white);
   border-bottom: 2px solid var(--win-white);
 
@@ -134,8 +131,16 @@ nav a:hover {
   min-width: 72px;
 }
 
-.start-icon {
-  font-size: 14px;
+.start-icon-img {
+  width: 16px;
+  height: 16px;
+
+  display: block;
+
+  object-fit: contain;
+  image-rendering: pixelated;
+
+  flex-shrink: 0;
 }
 
 .taskbar-divider {
@@ -166,22 +171,34 @@ nav a:hover {
 }
 
 .taskbar-clock {
-  min-width: 78px;
+  min-width: 92px;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
 
   padding: 2px 8px;
 
-  color:#e8e8e8;
+  color: #e8e8e8;
 
   font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 11px;
 
   border-top: 2px solid var(--win-dark-gray);
   border-left: 2px solid var(--win-dark-gray);
-
   border-right: 2px solid var(--win-white);
   border-bottom: 2px solid var(--win-white);
+}
+
+.clock-icon {
+  width: 16px;
+  height: 16px;
+
+  display: block;
+
+  object-fit: contain;
+  image-rendering: pixelated;
+
+  flex-shrink: 0;
 }

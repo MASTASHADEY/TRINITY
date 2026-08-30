@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TRINITY</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRINITY</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <header class="topbar">
-    <div class="logo">TRINITY</div>
+    <header class="topbar">
+        <div class="logo">TRINITY</div>
 
-    <nav>
-      <a href="#">Members Only</a>
-      <a href="#">Projects</a>
-      <a href="#">Radio</a>
-      <a href="#">About</a>
-      <a href="#">Tests</a>
-    </nav>
-  </header>
+        <nav>
+            <a href="#">Members Only</a>
+            <a href="#">Projects</a>
+            <a href="#">Radio</a>
+            <a href="#">About</a>
+            <a href="#">Tests</a>
+        </nav>
+    </header>
 
-  <main class="home"></main>
+    <main class="home"></main>
 
-  <div class="win-taskbar">
+    <div class="win-taskbar">
 
-    <button class="win-button start-button">
-      <span class="start-icon">▣</span>
-      <strong>Start</strong>
-    </button>
+        <button class="win-button start-button">
+            <img class="start-icon-img" src="assets/windows-start.png" alt="" />
+            <strong>Start</strong>
+        </button>
 
-    <div class="taskbar-divider"></div>
+        <div class="taskbar-divider"></div>
 
-    <button class="win-button task-button active">
-      <span class="task-icon">◉</span>
-      <span>TRINITY</span>
-    </button>
+        <button class="win-button task-button active">
+            <span class="task-icon">◉</span>
+            <span>TRINITY</span>
+        </button>
 
-    <div class="taskbar-spacer"></div>
+        <div class="taskbar-spacer"></div>
 
-    <div class="taskbar-clock" id="taskbarClock">
-      12:00 PM
+        <div class="taskbar-clock">
+            <img class="clock-icon" src="assets/win-connection-status.png" alt="" />
+
+            <span id="taskbarClock">
+                12:00 PM
+            </span>
+        </div>
+
     </div>
 
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
