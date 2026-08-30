@@ -1,204 +1,322 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  background-image: url("assets/spining_square_Erica_Anderson.gif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: black;
-  color: white;
+    min-height: 100vh;
+
+    background-image: url("assets/spining_square_Erica_Anderson.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+
+    color: white;
 }
 
 .topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+    position: fixed;
 
-  z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    z-index: 100;
 
-  padding: 18px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  background: transparent;
-  color: white;
+    padding: 18px 12px;
+
+    background: transparent;
+    color: white;
 }
 
 .logo {
-  font-weight: 900;
+    font-weight: 900;
 }
 
 nav {
-  display: flex;
-  gap: 28px;
+    display: flex;
+    gap: 28px;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 12px;
-  text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 nav a:hover {
-  opacity: 0.65;
+    opacity: 0.65;
 }
 
 .home {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 /* WINDOWS 98 TASKBAR */
 
 :root {
-  --win-gray: #202020;
-  --win-white: #707070;
-  --win-dark-gray: #080808;
-  --win-black: #000000;
+    --win-gray: #202020;
+    --win-white: #707070;
+    --win-dark-gray: #080808;
+    --win-black: #000000;
 }
 
 .win-taskbar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+    position: fixed;
 
-  z-index: 1000;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-  height: 34px;
-  padding: 3px;
+    z-index: 1000;
 
-  display: flex;
-  align-items: stretch;
-  gap: 4px;
+    height: 34px;
+    padding: 3px;
 
-  background: var(--win-gray);
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
 
-  border-top: 1px solid var(--win-white);
+    background: var(--win-gray);
 
-  box-shadow: inset 0 1px 0 var(--win-white);
+    border-top: 1px solid var(--win-white);
+
+    box-shadow: inset 0 1px 0 var(--win-white);
 }
 
 .win-button {
-  min-width: 70px;
+    min-width: 70px;
 
-  padding: 2px 7px;
+    padding: 2px 7px;
 
-  display: flex;
-  align-items: center;
-  gap: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
-  background: var(--win-gray);
-  color: #e8e8e8;
+    background: var(--win-gray);
+    color: #e8e8e8;
 
-  font-family: Tahoma, Verdana, Arial, sans-serif;
-  font-size: 11px;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 11px;
 
-  border-top: 2px solid var(--win-white);
-  border-left: 2px solid var(--win-white);
-  border-right: 2px solid var(--win-black);
-  border-bottom: 2px solid var(--win-black);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
 
-  cursor: pointer;
+    border-right: 2px solid var(--win-black);
+    border-bottom: 2px solid var(--win-black);
+
+    cursor: pointer;
 }
 
 .win-button.active {
-  border-top: 2px solid var(--win-black);
-  border-left: 2px solid var(--win-black);
-  border-right: 2px solid var(--win-white);
-  border-bottom: 2px solid var(--win-white);
+    border-top: 2px solid var(--win-black);
+    border-left: 2px solid var(--win-black);
 
-  background: #303030;
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
 
-  font-weight: bold;
+    background: #303030;
+
+    font-weight: bold;
 }
 
+/* START BUTTON */
+
 .start-button {
-  min-width: 72px;
+    min-width: 72px;
 }
 
 .start-icon-img {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 
-  display: block;
+    display: block;
 
-  object-fit: contain;
-  image-rendering: pixelated;
+    object-fit: contain;
+    image-rendering: pixelated;
 
-  flex-shrink: 0;
+    flex-shrink: 0;
 }
+
+/* START MENU */
+
+.start-menu {
+    position: fixed;
+
+    left: 3px;
+    bottom: 34px;
+
+    z-index: 999;
+
+    width: 220px;
+
+    display: none;
+
+    background: #202020;
+    color: #e8e8e8;
+
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+
+    border-right: 2px solid var(--win-black);
+    border-bottom: 2px solid var(--win-black);
+
+    box-shadow: inset 1px 1px 0 #404040;
+}
+
+.start-menu.open {
+    display: flex;
+}
+
+.start-menu-sidebar {
+    width: 28px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding-bottom: 8px;
+
+    background: #080808;
+
+    border-right: 1px solid var(--win-white);
+}
+
+.start-menu-sidebar span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #bfbfbf;
+}
+
+.start-menu-items {
+    flex: 1;
+
+    padding: 3px;
+}
+
+.start-menu-item {
+    width: 100%;
+
+    display: block;
+
+    padding: 9px 10px;
+
+    background: transparent;
+    color: #e8e8e8;
+
+    border: none;
+
+    text-align: left;
+
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.start-menu-item:hover {
+    background: #000080;
+    color: white;
+}
+
+.start-menu-divider {
+    height: 2px;
+
+    margin: 4px 3px;
+
+    border-top: 1px solid var(--win-dark-gray);
+    border-bottom: 1px solid var(--win-white);
+}
+
+/* TASKBAR DIVIDER */
 
 .taskbar-divider {
-  width: 3px;
+    width: 3px;
 
-  margin: 1px 2px;
+    margin: 1px 2px;
 
-  border-left: 1px solid var(--win-dark-gray);
-  border-right: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-dark-gray);
+    border-right: 1px solid var(--win-white);
 }
+
+/* TRINITY TASK BUTTON */
 
 .task-button {
-  min-width: 150px;
-  max-width: 200px;
+    min-width: 150px;
+    max-width: 200px;
 
-  justify-content: flex-start;
+    justify-content: flex-start;
 
-  overflow: hidden;
-  white-space: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.task-icon {
-  font-size: 12px;
+.task-icon-img {
+    width: 16px;
+    height: 16px;
+
+    display: block;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    flex-shrink: 0;
 }
 
 .taskbar-spacer {
-  flex: 1;
+    flex: 1;
 }
 
+/* CLOCK */
+
 .taskbar-clock {
-  min-width: 92px;
+    min-width: 92px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 
-  padding: 2px 8px;
+    padding: 2px 8px;
 
-  color: #e8e8e8;
+    color: #e8e8e8;
 
-  font-family: Tahoma, Verdana, Arial, sans-serif;
-  font-size: 11px;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 11px;
 
-  border-top: 2px solid var(--win-dark-gray);
-  border-left: 2px solid var(--win-dark-gray);
-  border-right: 2px solid var(--win-white);
-  border-bottom: 2px solid var(--win-white);
+    border-top: 2px solid var(--win-dark-gray);
+    border-left: 2px solid var(--win-dark-gray);
+
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
 }
 
 .clock-icon {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 
-  display: block;
+    display: block;
 
-  object-fit: contain;
-  image-rendering: pixelated;
+    object-fit: contain;
+    image-rendering: pixelated;
 
-  flex-shrink: 0;
+    flex-shrink: 0;
 }
