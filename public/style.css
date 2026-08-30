@@ -65,9 +65,9 @@ nav a:hover {
 /* WINDOWS 98 TASKBAR */
 
 :root {
-  --win-gray: #c0c0c0;
-  --win-white: #ffffff;
-  --win-dark-gray: #808080;
+  --win-gray: #202020;
+  --win-white: #707070;
+  --win-dark-gray: #080808;
   --win-black: #000000;
 }
 
@@ -104,7 +104,7 @@ nav a:hover {
   gap: 5px;
 
   background: var(--win-gray);
-  color: black;
+  color: #e8e8e8;
 
   font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 11px;
@@ -125,7 +125,7 @@ nav a:hover {
   border-right: 2px solid var(--win-white);
   border-bottom: 2px solid var(--win-white);
 
-  background: #b8b8b8;
+  background: #303030;
 
   font-weight: bold;
 }
@@ -174,7 +174,7 @@ nav a:hover {
 
   padding: 2px 8px;
 
-  color: black;
+  color:#e8e8e8;
 
   font-family: Tahoma, Verdana, Arial, sans-serif;
   font-size: 11px;
