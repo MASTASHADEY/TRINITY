@@ -174,12 +174,32 @@ nav a:hover {
     width: 220px;
 
     display: grid;
-
     align-content: end;
 
     grid-template-rows: 0fr;
 
-    transition: none;
+    transition: grid-template-rows 0.15s ease-out;
+}
+
+.start-menu.open {
+    grid-template-rows: 1fr;
+}
+
+.start-menu-mask {
+    min-height: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.start-menu-inner {
+    display: flex;
+
+    width: 100%;
+
+    flex-shrink: 0;
 
     background: #202020;
     color: #e8e8e8;
@@ -191,17 +211,6 @@ nav a:hover {
     border-bottom: 2px solid var(--win-black);
 
     box-shadow: inset 1px 1px 0 #404040;
-}
-
-.start-menu.open {
-    grid-template-rows: 1fr;
-
-    transition: grid-template-rows 0.15s ease-out;
-}
-
-.start-menu > * {
-    min-height: 0;
-    overflow: hidden;
 }
 
 .start-menu-sidebar {
