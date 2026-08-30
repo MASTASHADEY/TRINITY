@@ -22,7 +22,64 @@
         </nav>
     </header>
 
-    <main class="home"></main>
+    <main class="home">
+
+        <div class="desktop-window" id="desktopWindow">
+
+            <div class="desktop-window-titlebar" id="desktopWindowTitlebar">
+                <div class="desktop-window-title">
+                    <img
+                        class="desktop-window-icon"
+                        src="assets/trinity-logo.png"
+                        alt=""
+                        width="16"
+                        height="16"
+                    />
+
+                    <span id="desktopWindowTitle">
+                        TRINITY
+                    </span>
+                </div>
+
+                <div class="desktop-window-controls">
+
+                    <button
+                        class="desktop-window-control"
+                        id="windowMinimize"
+                        aria-label="Minimize"
+                    >
+                        _
+                    </button>
+
+                    <button
+                        class="desktop-window-control"
+                        id="windowMaximize"
+                        aria-label="Maximize"
+                    >
+                        □
+                    </button>
+
+                    <button
+                        class="desktop-window-control"
+                        id="windowClose"
+                        aria-label="Close"
+                    >
+                        ×
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="desktop-window-content" id="desktopWindowContent">
+
+                <h2>PROJECTS</h2>
+                <p>COMING SOON</p>
+
+            </div>
+
+        </div>
+
+    </main>
 
     <div class="start-menu" id="startMenu">
         <div class="start-menu-mask">
@@ -34,14 +91,27 @@
                 </div>
 
                 <div class="start-menu-items">
-                    <button class="start-menu-item">Projects</button>
-                    <button class="start-menu-item">Radio</button>
-                    <button class="start-menu-item">Tests</button>
+                    <button class="start-menu-item" data-window="projects">
+                        Projects
+                    </button>
+
+                    <button class="start-menu-item" data-window="radio">
+                        Radio
+                    </button>
+
+                    <button class="start-menu-item" data-window="tests">
+                        Tests
+                    </button>
 
                     <div class="start-menu-divider"></div>
 
-                    <button class="start-menu-item">About</button>
-                    <button class="start-menu-item">Members Only</button>
+                    <button class="start-menu-item" data-window="about">
+                        About
+                    </button>
+
+                    <button class="start-menu-item" data-window="members">
+                        Members Only
+                    </button>
                 </div>
 
             </div>
@@ -52,21 +122,39 @@
     <div class="win-taskbar">
 
         <button class="win-button start-button" id="startButton">
-            <img class="start-icon-img" src="assets/windows-start.png" alt="" width="16" height="16" />
+            <img
+                class="start-icon-img"
+                src="assets/windows-start.png"
+                alt=""
+                width="16"
+                height="16"
+            />
             <strong>Start</strong>
         </button>
 
         <div class="taskbar-divider"></div>
 
         <button class="win-button task-button active">
-            <img class="task-icon-img" src="assets/trinity-logo.png" alt="" width="16" height="16" />
+            <img
+                class="task-icon-img"
+                src="assets/trinity-logo.png"
+                alt=""
+                width="16"
+                height="16"
+            />
             <span>TRINITY</span>
         </button>
 
         <div class="taskbar-spacer"></div>
 
         <div class="taskbar-clock">
-            <img class="clock-icon" src="assets/win-connection-status.png" alt="" width="16" height="16" />
+            <img
+                class="clock-icon"
+                src="assets/win-connection-status.png"
+                alt=""
+                width="16"
+                height="16"
+            />
 
             <span id="taskbarClock">
                 12:00 PM
