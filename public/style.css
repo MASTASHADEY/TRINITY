@@ -7,7 +7,6 @@ body {
     margin: 0;
     width: 100%;
     min-height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -20,7 +19,59 @@ body {
     background-color: black;
 
     color: white;
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   TRINITY - WINDOWS 2000 CHARCOAL THEME
+   ========================================================= */
+
+:root {
+    --w2k-surface: #1c1c1c;
+    --w2k-surface-light: #3a3a3a;
+    --w2k-hilight: #5a5a5a;
+    --w2k-shadow: #101010;
+    --w2k-dk-shadow: #000000;
+
+    --w2k-active-title-left: #0a246a;
+    --w2k-active-title-right: #3a6ea5;
+    --w2k-active-title-text: #ffffff;
+
+    --w2k-inactive-title: #000000;
+    --w2k-inactive-title-text: #808080;
+
+    --w2k-client-bg: #0e0e0e;
+    --w2k-client-text: #e0e0e0;
+
+    --w2k-selection: #0a246a;
+
+    --taskbar-height: 34px;
+
+
+    /* 98.css overrides */
+
+    --surface: var(--w2k-surface);
+
+    --button-highlight: var(--w2k-hilight);
+    --button-face: var(--w2k-surface);
+    --button-shadow: var(--w2k-shadow);
+
+    --window-frame: var(--w2k-dk-shadow);
+
+    --dialog-blue: var(--w2k-active-title-left);
+    --dialog-blue-light: var(--w2k-active-title-right);
+
+    --dialog-gray: var(--w2k-inactive-title);
+    --dialog-gray-light: #282828;
+
+    --text-color: var(--w2k-client-text);
+}
+
+
+/* =========================================================
+   WEBSITE TOP NAVIGATION
+   ========================================================= */
 
 .topbar {
     position: fixed;
@@ -39,6 +90,8 @@ body {
 
     background: transparent;
     color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo {
@@ -53,7 +106,10 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+
     text-transform: uppercase;
 }
 
@@ -61,24 +117,24 @@ nav a:hover {
     opacity: 0.65;
 }
 
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
 .home {
-    min-height: 100vh;
     position: relative;
+
+    width: 100%;
+    min-height: 100vh;
 }
 
-/* WINDOWS 98 COLORS */
 
-:root {
-    --win-gray: #202020;
-    --win-white: #707070;
-    --win-dark-gray: #080808;
-    --win-black: #000000;
-    --win-text: #e8e8e8;
-}
+/* =========================================================
+   WINDOWS
+   ========================================================= */
 
-/* DESKTOP WINDOW */
-
-.desktop-window {
+.trinity-window {
     position: absolute;
 
     left: 50%;
@@ -98,118 +154,97 @@ nav a:hover {
     display: flex;
     flex-direction: column;
 
-    background: var(--win-gray);
-    color: var(--win-text);
+    z-index: 500;
 
-    border-top: 2px solid var(--win-white);
-    border-left: 2px solid var(--win-white);
-
-    border-right: 2px solid var(--win-black);
-    border-bottom: 2px solid var(--win-black);
+    background: var(--w2k-surface) !important;
+    color: var(--w2k-client-text) !important;
 
     box-shadow:
-        inset 1px 1px 0 #404040,
-        2px 2px 0 rgba(0, 0, 0, 0.6);
-
-    z-index: 500;
+        inset -1px -1px 0 var(--w2k-dk-shadow),
+        inset 1px 1px 0 var(--w2k-hilight),
+        inset -2px -2px 0 var(--w2k-shadow),
+        inset 2px 2px 0 var(--w2k-surface-light) !important;
 }
 
-/* WINDOW TITLE BAR */
 
-.desktop-window-titlebar {
-    height: 26px;
+/* =========================================================
+   WINDOW TITLE BAR
+   ========================================================= */
 
+.trinity-window .title-bar {
     flex-shrink: 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 3px 4px !important;
 
-    padding: 3px;
-
-    background: #101010;
-    color: white;
-
-    border-bottom: 1px solid #000000;
-
-    font-family: Tahoma, Verdana, Arial, sans-serif;
-    font-size: 11px;
-    font-weight: bold;
+    background: var(--w2k-inactive-title) !important;
+    color: var(--w2k-inactive-title-text) !important;
 
     cursor: move;
     user-select: none;
 }
 
-.desktop-window-title {
-    min-width: 0;
 
-    display: flex;
-    align-items: center;
-    gap: 5px;
+/* ACTIVE WINDOW */
 
+.trinity-window.active .title-bar,
+.trinity-window:focus-within .title-bar {
+    background: linear-gradient(
+        90deg,
+        var(--w2k-active-title-left) 0%,
+        var(--w2k-active-title-right) 100%
+    ) !important;
+
+    color: var(--w2k-active-title-text) !important;
+}
+
+
+/* INACTIVE WINDOW */
+
+.trinity-window:not(.active) .title-bar {
+    background: var(--w2k-inactive-title) !important;
+    color: var(--w2k-inactive-title-text) !important;
+}
+
+
+.trinity-window .title-bar-text {
     overflow: hidden;
+
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.desktop-window-icon {
-    width: 16px;
-    height: 16px;
 
-    object-fit: contain;
-    image-rendering: pixelated;
+/* =========================================================
+   TITLE BAR CONTROL BUTTONS
+   ========================================================= */
 
+.trinity-window .title-bar-controls {
     flex-shrink: 0;
 }
 
-/* WINDOW CONTROL BUTTONS */
+.trinity-window .title-bar-controls button {
+    background: var(--w2k-surface) !important;
 
-.desktop-window-controls {
-    display: flex;
-    gap: 2px;
-
-    flex-shrink: 0;
+    box-shadow:
+        inset -1px -1px 0 var(--w2k-dk-shadow),
+        inset 1px 1px 0 var(--w2k-hilight),
+        inset -2px -2px 0 var(--w2k-shadow),
+        inset 2px 2px 0 var(--w2k-surface-light) !important;
 }
 
-.desktop-window-control {
-    width: 19px;
-    height: 18px;
-
-    padding: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--win-gray);
-    color: var(--win-text);
-
-    border-top: 2px solid var(--win-white);
-    border-left: 2px solid var(--win-white);
-
-    border-right: 2px solid var(--win-black);
-    border-bottom: 2px solid var(--win-black);
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 1;
-
-    cursor: pointer;
+.trinity-window .title-bar-controls button:active {
+    box-shadow:
+        inset 1px 1px 0 var(--w2k-dk-shadow),
+        inset -1px -1px 0 var(--w2k-hilight),
+        inset 2px 2px 0 var(--w2k-shadow) !important;
 }
 
-.desktop-window-control:active {
-    border-top: 2px solid var(--win-black);
-    border-left: 2px solid var(--win-black);
 
-    border-right: 2px solid var(--win-white);
-    border-bottom: 2px solid var(--win-white);
+/* =========================================================
+   WINDOW BODY
+   ========================================================= */
 
-    background: #303030;
-}
-
-/* WINDOW CONTENT */
-
-.desktop-window-content {
+.trinity-window-body {
     flex: 1;
 
     min-width: 0;
@@ -225,33 +260,47 @@ nav a:hover {
     align-items: center;
     justify-content: center;
 
-    background: #141414;
-    color: var(--win-text);
+    background-color: var(--w2k-client-bg) !important;
+    color: var(--w2k-client-text) !important;
 
-    border-top: 2px solid var(--win-dark-gray);
-    border-left: 2px solid var(--win-dark-gray);
-
-    border-right: 2px solid var(--win-white);
-    border-bottom: 2px solid var(--win-white);
+    box-shadow:
+        inset 1px 1px 0 var(--w2k-shadow),
+        inset -1px -1px 0 var(--w2k-hilight),
+        inset 2px 2px 0 var(--w2k-dk-shadow),
+        inset -2px -2px 0 var(--w2k-surface-light) !important;
 
     text-align: center;
 }
 
-.desktop-window-content h2 {
+.trinity-window-body h2 {
     margin: 0 0 8px;
 
+    color: var(--w2k-client-text);
+
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 28px;
 }
 
-.desktop-window-content p {
+.trinity-window-body p {
     margin: 0;
 
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    color: var(--w2k-client-text);
+
+    font-family: "Pixelated MS Sans Serif",
+        Tahoma,
+        Verdana,
+        Arial,
+        sans-serif;
+
     font-size: 11px;
+
     letter-spacing: 2px;
 }
 
-/* WINDOWS 98 TASKBAR */
+
+/* =========================================================
+   TASKBAR
+   ========================================================= */
 
 .win-taskbar {
     position: fixed;
@@ -262,19 +311,27 @@ nav a:hover {
 
     z-index: 1000;
 
-    height: 34px;
+    height: var(--taskbar-height);
+
     padding: 3px;
 
     display: flex;
     align-items: stretch;
+
     gap: 4px;
 
-    background: var(--win-gray);
+    background: var(--w2k-surface);
 
-    border-top: 1px solid var(--win-white);
+    border-top: 1px solid var(--w2k-hilight);
 
-    box-shadow: inset 0 1px 0 var(--win-white);
+    box-shadow:
+        inset 0 1px 0 var(--w2k-surface-light);
 }
+
+
+/* =========================================================
+   TASKBAR BUTTONS
+   ========================================================= */
 
 .win-button {
     min-width: 70px;
@@ -283,49 +340,57 @@ nav a:hover {
 
     display: flex;
     align-items: center;
+
     gap: 5px;
 
-    background: var(--win-gray);
-    color: var(--win-text);
+    background: var(--w2k-surface);
+    color: var(--w2k-client-text);
 
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-family: "Pixelated MS Sans Serif",
+        Tahoma,
+        Verdana,
+        Arial,
+        sans-serif;
+
     font-size: 11px;
 
-    border-top: 2px solid var(--win-white);
-    border-left: 2px solid var(--win-white);
+    border: none;
 
-    border-right: 2px solid var(--win-black);
-    border-bottom: 2px solid var(--win-black);
+    box-shadow:
+        inset -1px -1px 0 var(--w2k-dk-shadow),
+        inset 1px 1px 0 var(--w2k-hilight),
+        inset -2px -2px 0 var(--w2k-shadow),
+        inset 2px 2px 0 var(--w2k-surface-light);
 
     cursor: pointer;
 }
 
+.win-button:active,
 .win-button.active {
-    border-top: 2px solid var(--win-black);
-    border-left: 2px solid var(--win-black);
+    background: var(--w2k-surface);
 
-    border-right: 2px solid var(--win-white);
-    border-bottom: 2px solid var(--win-white);
-
-    background: #303030;
+    box-shadow:
+        inset 1px 1px 0 var(--w2k-dk-shadow),
+        inset -1px -1px 0 var(--w2k-hilight),
+        inset 2px 2px 0 var(--w2k-shadow);
 
     font-weight: bold;
 }
 
-/* START BUTTON */
+
+/* =========================================================
+   START BUTTON
+   ========================================================= */
 
 .start-button {
     min-width: 72px;
 }
 
 .start-button.pressed {
-    border-top: 2px solid var(--win-black);
-    border-left: 2px solid var(--win-black);
-
-    border-right: 2px solid var(--win-white);
-    border-bottom: 2px solid var(--win-white);
-
-    background: #303030;
+    box-shadow:
+        inset 1px 1px 0 var(--w2k-dk-shadow),
+        inset -1px -1px 0 var(--w2k-hilight),
+        inset 2px 2px 0 var(--w2k-shadow);
 }
 
 .start-icon-img {
@@ -335,18 +400,22 @@ nav a:hover {
     display: block;
 
     object-fit: contain;
+
     image-rendering: pixelated;
 
     flex-shrink: 0;
 }
 
-/* START MENU */
+
+/* =========================================================
+   START MENU
+   ========================================================= */
 
 .start-menu {
     position: fixed;
 
     left: 3px;
-    bottom: 34px;
+    bottom: var(--taskbar-height);
 
     z-index: 999;
 
@@ -381,17 +450,20 @@ nav a:hover {
 
     flex-shrink: 0;
 
-    background: var(--win-gray);
-    color: var(--win-text);
+    background: var(--w2k-surface);
+    color: var(--w2k-client-text);
 
-    border-top: 2px solid var(--win-white);
-    border-left: 2px solid var(--win-white);
-
-    border-right: 2px solid var(--win-black);
-    border-bottom: 2px solid var(--win-black);
-
-    box-shadow: inset 1px 1px 0 #404040;
+    box-shadow:
+        inset -1px -1px 0 var(--w2k-dk-shadow),
+        inset 1px 1px 0 var(--w2k-hilight),
+        inset -2px -2px 0 var(--w2k-shadow),
+        inset 2px 2px 0 var(--w2k-surface-light);
 }
+
+
+/* =========================================================
+   START MENU SIDEBAR
+   ========================================================= */
 
 .start-menu-sidebar {
     width: 28px;
@@ -402,21 +474,36 @@ nav a:hover {
 
     padding-bottom: 8px;
 
-    background: var(--win-dark-gray);
+    background: linear-gradient(
+        0deg,
+        var(--w2k-active-title-left),
+        var(--w2k-active-title-right)
+    );
 
-    border-right: 1px solid var(--win-white);
+    border-right: 1px solid var(--w2k-hilight);
 }
 
 .start-menu-sidebar span {
     writing-mode: vertical-rl;
+
     transform: rotate(180deg);
 
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-family: "Pixelated MS Sans Serif",
+        Tahoma,
+        Verdana,
+        Arial,
+        sans-serif;
+
     font-size: 15px;
     font-weight: bold;
 
-    color: #bfbfbf;
+    color: white;
 }
+
+
+/* =========================================================
+   START MENU ITEMS
+   ========================================================= */
 
 .start-menu-items {
     flex: 1;
@@ -432,21 +519,29 @@ nav a:hover {
     padding: 9px 10px;
 
     background: transparent;
-    color: var(--win-text);
+    color: var(--w2k-client-text);
 
     border: none;
+    box-shadow: none;
 
     text-align: left;
 
-    font-family: Tahoma, Verdana, Arial, sans-serif;
-    font-size: 12px;
+    font-family: "Pixelated MS Sans Serif",
+        Tahoma,
+        Verdana,
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
 
     cursor: pointer;
 }
 
 .start-menu-item:hover {
-    background: #000080;
+    background: var(--w2k-selection);
     color: white;
+
+    box-shadow: none;
 }
 
 .start-menu-divider {
@@ -454,22 +549,30 @@ nav a:hover {
 
     margin: 4px 3px;
 
-    border-top: 1px solid var(--win-dark-gray);
-    border-bottom: 1px solid var(--win-white);
+    border-top: 1px solid var(--w2k-shadow);
+    border-bottom: 1px solid var(--w2k-hilight);
 }
 
-/* TASKBAR DIVIDER */
+
+/* =========================================================
+   TASKBAR DIVIDER
+   ========================================================= */
 
 .taskbar-divider {
     width: 3px;
 
     margin: 1px 2px;
 
-    border-left: 1px solid var(--win-dark-gray);
-    border-right: 1px solid var(--win-white);
+    flex-shrink: 0;
+
+    border-left: 1px solid var(--w2k-shadow);
+    border-right: 1px solid var(--w2k-hilight);
 }
 
-/* TRINITY TASK BUTTON */
+
+/* =========================================================
+   PERMANENT TRINITY TASKBAR BUTTON
+   ========================================================= */
 
 .task-button {
     width: auto;
@@ -481,6 +584,8 @@ nav a:hover {
 
     overflow: hidden;
     white-space: nowrap;
+
+    flex-shrink: 0;
 }
 
 .task-icon-img {
@@ -490,16 +595,45 @@ nav a:hover {
     display: block;
 
     object-fit: contain;
+
     image-rendering: pixelated;
 
     flex-shrink: 0;
+}
+
+
+/* =========================================================
+   APPLICATION TASKBAR AREA
+   ========================================================= */
+
+.taskbar-apps {
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 4px;
+
+    min-width: 0;
+}
+
+.taskbar-app-button {
+    min-width: 100px;
+    max-width: 180px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .taskbar-spacer {
     flex: 1;
 }
 
-/* CLOCK */
+
+/* =========================================================
+   CLOCK / SYSTEM TRAY
+   ========================================================= */
 
 .taskbar-clock {
     min-width: 92px;
@@ -507,20 +641,28 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 6px;
 
     padding: 2px 8px;
 
-    color: var(--win-text);
+    color: var(--w2k-client-text);
 
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-family: "Pixelated MS Sans Serif",
+        Tahoma,
+        Verdana,
+        Arial,
+        sans-serif;
+
     font-size: 11px;
 
-    border-top: 2px solid var(--win-dark-gray);
-    border-left: 2px solid var(--win-dark-gray);
+    box-shadow:
+        inset 1px 1px 0 var(--w2k-shadow),
+        inset -1px -1px 0 var(--w2k-hilight),
+        inset 2px 2px 0 var(--w2k-dk-shadow),
+        inset -2px -2px 0 var(--w2k-surface-light);
 
-    border-right: 2px solid var(--win-white);
-    border-bottom: 2px solid var(--win-white);
+    flex-shrink: 0;
 }
 
 .clock-icon {
@@ -530,12 +672,16 @@ nav a:hover {
     display: block;
 
     object-fit: contain;
+
     image-rendering: pixelated;
 
     flex-shrink: 0;
 }
 
-/* SEPARATE SUBPAGES */
+
+/* =========================================================
+   SEPARATE WEBSITE SUBPAGES
+   ========================================================= */
 
 .logo-link {
     color: white;
@@ -560,6 +706,7 @@ nav a:hover {
 
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
@@ -571,6 +718,8 @@ nav a:hover {
 .subpage-content h1 {
     margin: 120px 0 8px;
 
+    font-family: Arial, Helvetica, sans-serif;
+
     font-size: 48px;
     font-weight: 900;
 }
@@ -578,6 +727,9 @@ nav a:hover {
 .subpage-content p {
     margin: 0;
 
+    font-family: Arial, Helvetica, sans-serif;
+
     font-size: 11px;
+
     letter-spacing: 2px;
 }

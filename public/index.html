@@ -4,14 +4,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>TRINITY</title>
+
+    <!-- WINDOWS 98 BASE STYLES -->
+    <link rel="stylesheet" href="98.css-main/dist/98.css" />
+
+    <!-- TRINITY STYLES / DARK THEME OVERRIDES -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+    <!-- TOP WEBSITE NAVIGATION -->
+
     <header class="topbar">
-        <div class="logo">TRINITY</div>
+
+        <div class="logo">
+            TRINITY
+        </div>
 
         <nav>
             <a href="members.html">Members Only</a>
@@ -20,60 +31,82 @@
             <a href="about.html">About</a>
             <a href="tests.html">Tests</a>
         </nav>
+
     </header>
 
-    <main class="home">
 
-        <div class="desktop-window" id="desktopWindow">
+    <!-- DESKTOP -->
 
-            <div class="desktop-window-titlebar" id="desktopWindowTitlebar">
-                <div class="desktop-window-title">
-                    <img
-                        class="desktop-window-icon"
-                        src="assets/trinity-logo.png"
-                        alt=""
-                        width="16"
-                        height="16"
-                    />
+    <main class="home" id="desktop">
 
-                    <span id="desktopWindowTitle">
-                        TRINITY
-                    </span>
+        <!--
+            FIRST WINDOWS 98 WINDOW
+
+            This is currently our test window.
+
+            Eventually JavaScript will create separate windows
+            for Projects, Radio, Tests, About, and Members Only.
+        -->
+
+        <div
+            class="window trinity-window"
+            id="desktopWindow"
+            data-window="projects"
+        >
+
+            <!-- WINDOWS 98 TITLE BAR -->
+
+            <div
+                class="title-bar"
+                id="desktopWindowTitlebar"
+            >
+
+                <div
+                    class="title-bar-text"
+                    id="desktopWindowTitle"
+                >
+                    TRINITY - PROJECTS
                 </div>
 
-                <div class="desktop-window-controls">
+                <!--
+                    98.css renders the actual Windows 98
+                    minimize, maximize, and close glyphs.
+                -->
+
+                <div class="title-bar-controls">
 
                     <button
-                        class="desktop-window-control"
                         id="windowMinimize"
                         aria-label="Minimize"
-                    >
-                        _
-                    </button>
+                    ></button>
 
                     <button
-                        class="desktop-window-control"
                         id="windowMaximize"
                         aria-label="Maximize"
-                    >
-                        □
-                    </button>
+                    ></button>
 
                     <button
-                        class="desktop-window-control"
                         id="windowClose"
                         aria-label="Close"
-                    >
-                        ×
-                    </button>
+                    ></button>
 
                 </div>
+
             </div>
 
-            <div class="desktop-window-content" id="desktopWindowContent">
+
+            <!-- WINDOWS 98 WINDOW BODY -->
+
+            <div
+                class="window-body trinity-window-body"
+                id="desktopWindowContent"
+            >
 
                 <h2>PROJECTS</h2>
-                <p>COMING SOON</p>
+
+                <p>
+                    COMING SOON
+                </p>
 
             </div>
 
@@ -81,7 +114,14 @@
 
     </main>
 
-    <div class="start-menu" id="startMenu">
+
+    <!-- START MENU -->
+
+    <div
+        class="start-menu"
+        id="startMenu"
+    >
+
         <div class="start-menu-mask">
 
             <div class="start-menu-inner">
@@ -91,37 +131,64 @@
                 </div>
 
                 <div class="start-menu-items">
-                    <button class="start-menu-item" data-window="projects">
+
+                    <button
+                        class="start-menu-item"
+                        data-window="projects"
+                    >
                         Projects
                     </button>
 
-                    <button class="start-menu-item" data-window="radio">
+                    <button
+                        class="start-menu-item"
+                        data-window="radio"
+                    >
                         Radio
                     </button>
 
-                    <button class="start-menu-item" data-window="tests">
+                    <button
+                        class="start-menu-item"
+                        data-window="tests"
+                    >
                         Tests
                     </button>
 
                     <div class="start-menu-divider"></div>
 
-                    <button class="start-menu-item" data-window="about">
+                    <button
+                        class="start-menu-item"
+                        data-window="about"
+                    >
                         About
                     </button>
 
-                    <button class="start-menu-item" data-window="members">
+                    <button
+                        class="start-menu-item"
+                        data-window="members"
+                    >
                         Members Only
                     </button>
+
                 </div>
 
             </div>
 
         </div>
+
     </div>
+
+
+    <!-- WINDOWS TASKBAR -->
 
     <div class="win-taskbar">
 
-        <button class="win-button start-button" id="startButton">
+        <!-- START BUTTON -->
+
+        <button
+            class="win-button start-button"
+            id="startButton"
+        >
+
             <img
                 class="start-icon-img"
                 src="assets/windows-start.png"
@@ -129,12 +196,26 @@
                 width="16"
                 height="16"
             />
+
             <strong>Start</strong>
+
         </button>
+
 
         <div class="taskbar-divider"></div>
 
-        <button class="win-button task-button active">
+
+        <!--
+            PERMANENT TRINITY TASKBAR BUTTON
+
+            This stays separate from application windows.
+        -->
+
+        <button
+            class="win-button task-button trinity-task-button active"
+            id="trinityTaskButton"
+        >
+
             <img
                 class="task-icon-img"
                 src="assets/trinity-logo.png"
@@ -142,12 +223,37 @@
                 width="16"
                 height="16"
             />
-            <span>TRINITY</span>
+
+            <span>
+                TRINITY
+            </span>
+
         </button>
+
+
+        <!--
+            APPLICATION TASKBAR BUTTONS
+
+            JavaScript will add buttons here later.
+
+            Example:
+
+            [ Start ] [ TRINITY ] [ Projects ] [ Radio ]
+        -->
+
+        <div
+            class="taskbar-apps"
+            id="taskbarApps"
+        ></div>
+
 
         <div class="taskbar-spacer"></div>
 
+
+        <!-- CLOCK -->
+
         <div class="taskbar-clock">
+
             <img
                 class="clock-icon"
                 src="assets/win-connection-status.png"
@@ -159,9 +265,13 @@
             <span id="taskbarClock">
                 12:00 PM
             </span>
+
         </div>
 
     </div>
+
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
