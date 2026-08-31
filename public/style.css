@@ -320,14 +320,27 @@ nav a:hover {
 /* MINIMIZE */
 
 .trinity-window .title-bar-controls button[aria-label="Minimize"]::after {
+    content: "";
 
-    mask-image:
-        url("98.css-main/icon/minimize.svg");
+    position: absolute;
 
-    -webkit-mask-image:
-        url("98.css-main/icon/minimize.svg");
+    left: 3px;
+    bottom: 3px;
+
+    width: 7px;
+    height: 2px;
+
+    background: #e8e8e8;
+
+    mask: none;
+    -webkit-mask: none;
+
+    transform: none;
 }
 
+.trinity-window .title-bar-controls button[aria-label="Minimize"]:active::after {
+    transform: translate(1px, 1px);
+}
 
 /* MAXIMIZE */
 
