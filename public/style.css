@@ -34,18 +34,19 @@ body {
     --w2k-shadow: #101010;
     --w2k-dk-shadow: #000000;
 
-    --w2k-active-title-left: #0b1f45;
-    --w2k-active-title-right: #243b58;
+    --w2k-active-title-left: #050505;
+    --w2k-active-title-right: #242424;
     --w2k-active-title-text: #ffffff;
 
     --w2k-inactive-title-left: #050505;
-    --w2k-inactive-title-right: #181818;
+    --w2k-inactive-title-right: #141414;
     --w2k-inactive-title-text: #9a9a9a;
 
     --w2k-client-bg: #0e0e0e;
     --w2k-client-text: #e0e0e0;
 
-    --w2k-selection: #0a246a;
+
+    --w2k-selection: #3a3a3a;
 
     --taskbar-height: 34px;
 
@@ -183,13 +184,11 @@ nav a:hover {
     align-items: center !important;
     justify-content: space-between !important;
 
-    background: linear-gradient(
-        90deg,
-        var(--w2k-inactive-title-left),
-        var(--w2k-inactive-title-right)
-    ) !important;
+    background: linear-gradient(90deg,
+            #050505 0%,
+            #141414 100%) !important;
 
-    color: var(--w2k-inactive-title-text) !important;
+    color: #9a9a9a !important;
 
     cursor: move;
     user-select: none;
@@ -199,29 +198,37 @@ nav a:hover {
 /* ACTIVE WINDOW */
 
 .trinity-window.active .title-bar {
-    background: linear-gradient(
-        90deg,
-        var(--w2k-active-title-left) 0%,
-        #142b50 45%,
-        var(--w2k-active-title-right) 100%
-    ) !important;
+    background: linear-gradient(90deg,
+            #050505 0%,
+            #101010 45%,
+            #242424 100%) !important;
 
-    color: var(--w2k-active-title-text) !important;
+    color: #ffffff !important;
 }
 
 
 /* INACTIVE WINDOW */
 
 .trinity-window:not(.active) .title-bar {
-    background: linear-gradient(
-        90deg,
-        var(--w2k-inactive-title-left),
-        var(--w2k-inactive-title-right)
-    ) !important;
+    background: linear-gradient(90deg,
+            #030303 0%,
+            #111111 100%) !important;
 
-    color: var(--w2k-inactive-title-text) !important;
+    color: #9a9a9a !important;
 }
 
+
+.trinity-window .title-bar-text {
+    min-width: 0;
+
+    margin-right: 8px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    line-height: 14px;
+}
 
 /* =========================================================
    TITLE TEXT
@@ -241,7 +248,7 @@ nav a:hover {
 
 
 /* =========================================================
-   MINIMIZE / MAXIMIZE / CLOSE
+   MINIMIZE / MAXIMIZE / RESTORE / CLOSE
    ========================================================= */
 
 .trinity-window .title-bar-controls {
@@ -254,54 +261,126 @@ nav a:hover {
 }
 
 .trinity-window .title-bar-controls button {
-    padding: 0 !important;
+    position: relative;
 
     display: block;
 
-    min-width: 16px !important;
     width: 16px !important;
+    min-width: 16px !important;
 
-    min-height: 14px !important;
     height: 14px !important;
+    min-height: 14px !important;
 
     margin: 0 !important;
+    padding: 0 !important;
 
-    background-color: var(--w2k-surface) !important;
-
-    /*
-        Do not use background: here.
-
-        98.css supplies the actual Minimize,
-        Maximize, Restore and Close glyphs
-        through background-image.
-    */
+    background-color: #1c1c1c !important;
+    background-image: none !important;
 
     box-shadow:
-        inset -1px -1px 0 var(--w2k-dk-shadow),
-        inset 1px 1px 0 var(--w2k-hilight),
-        inset -2px -2px 0 var(--w2k-shadow),
-        inset 2px 2px 0 var(--w2k-surface-light) !important;
+        inset -1px -1px 0 #000000,
+        inset 1px 1px 0 #707070,
+        inset -2px -2px 0 #101010,
+        inset 2px 2px 0 #3a3a3a !important;
 
     flex: 0 0 16px;
 }
 
-.trinity-window .title-bar-controls button + button {
+
+/* small classic spacing */
+
+.trinity-window .title-bar-controls button+button {
     margin-left: 2px !important;
 }
 
-.trinity-window .title-bar-controls button:active {
-    padding: 0 !important;
 
+/* WHITE 98.CSS GLYPH */
+
+.trinity-window .title-bar-controls button::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 2px;
+
+    background-color: #e8e8e8;
+
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+    pointer-events: none;
+}
+
+
+/* MINIMIZE */
+
+.trinity-window .title-bar-controls button[aria-label="Minimize"]::after {
+
+    mask-image:
+        url("98.css-main/icon/minimize.svg");
+
+    -webkit-mask-image:
+        url("98.css-main/icon/minimize.svg");
+}
+
+
+/* MAXIMIZE */
+
+.trinity-window .title-bar-controls button[aria-label="Maximize"]::after {
+
+    mask-image:
+        url("98.css-main/icon/maximize.svg");
+
+    -webkit-mask-image:
+        url("98.css-main/icon/maximize.svg");
+}
+
+
+/* RESTORE */
+
+.trinity-window .title-bar-controls button[aria-label="Restore"]::after {
+
+    mask-image:
+        url("98.css-main/icon/restore.svg");
+
+    -webkit-mask-image:
+        url("98.css-main/icon/restore.svg");
+}
+
+
+/* CLOSE */
+
+.trinity-window .title-bar-controls button[aria-label="Close"]::after {
+
+    mask-image:
+        url("98.css-main/icon/close.svg");
+
+    -webkit-mask-image:
+        url("98.css-main/icon/close.svg");
+}
+
+
+/* PRESSED BUTTON */
+
+.trinity-window .title-bar-controls button:active {
     box-shadow:
-        inset 1px 1px 0 var(--w2k-dk-shadow),
-        inset -1px -1px 0 var(--w2k-hilight),
-        inset 2px 2px 0 var(--w2k-shadow) !important;
+        inset 1px 1px 0 #000000,
+        inset -1px -1px 0 #707070,
+        inset 2px 2px 0 #101010 !important;
+}
+
+.trinity-window .title-bar-controls button:active::after {
+    transform: translate(1px, 1px);
 }
 
 .trinity-window .title-bar-controls button:focus {
     outline: none;
 }
-
 
 /* =========================================================
    WINDOW BODY
@@ -539,12 +618,10 @@ nav a:hover {
 
     padding-bottom: 8px;
 
-    background: linear-gradient(
-        0deg,
-        #050505 0%,
-        #161616 55%,
-        #303030 100%
-    );
+    background: linear-gradient(0deg,
+            #050505 0%,
+            #161616 55%,
+            #303030 100%);
 
     border-right: 1px solid var(--w2k-hilight);
 }
@@ -606,7 +683,7 @@ nav a:hover {
 }
 
 .start-menu-item:hover {
-    background: var(--w2k-selection);
+    background: #3a3a3a;
     color: white;
 
     box-shadow: none;
