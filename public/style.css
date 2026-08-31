@@ -34,12 +34,13 @@ body {
     --w2k-shadow: #101010;
     --w2k-dk-shadow: #000000;
 
-    --w2k-active-title-left: #0a246a;
-    --w2k-active-title-right: #3a6ea5;
+    --w2k-active-title-left: #0b1f45;
+    --w2k-active-title-right: #243b58;
     --w2k-active-title-text: #ffffff;
 
-    --w2k-inactive-title: #000000;
-    --w2k-inactive-title-text: #808080;
+    --w2k-inactive-title-left: #050505;
+    --w2k-inactive-title-right: #181818;
+    --w2k-inactive-title-text: #9a9a9a;
 
     --w2k-client-bg: #0e0e0e;
     --w2k-client-text: #e0e0e0;
@@ -62,8 +63,8 @@ body {
     --dialog-blue: var(--w2k-active-title-left);
     --dialog-blue-light: var(--w2k-active-title-right);
 
-    --dialog-gray: var(--w2k-inactive-title);
-    --dialog-gray-light: #282828;
+    --dialog-gray: var(--w2k-inactive-title-left);
+    --dialog-gray-light: var(--w2k-inactive-title-right);
 
     --text-color: var(--w2k-client-text);
 }
@@ -172,11 +173,22 @@ nav a:hover {
    ========================================================= */
 
 .trinity-window .title-bar {
+    height: 22px;
+
     flex-shrink: 0;
 
-    padding: 3px 4px !important;
+    padding: 3px 2px 3px 3px !important;
 
-    background: var(--w2k-inactive-title) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    background: linear-gradient(
+        90deg,
+        var(--w2k-inactive-title-left),
+        var(--w2k-inactive-title-right)
+    ) !important;
+
     color: var(--w2k-inactive-title-text) !important;
 
     cursor: move;
@@ -186,11 +198,11 @@ nav a:hover {
 
 /* ACTIVE WINDOW */
 
-.trinity-window.active .title-bar,
-.trinity-window:focus-within .title-bar {
+.trinity-window.active .title-bar {
     background: linear-gradient(
         90deg,
         var(--w2k-active-title-left) 0%,
+        #142b50 45%,
         var(--w2k-active-title-right) 100%
     ) !important;
 
@@ -201,42 +213,93 @@ nav a:hover {
 /* INACTIVE WINDOW */
 
 .trinity-window:not(.active) .title-bar {
-    background: var(--w2k-inactive-title) !important;
+    background: linear-gradient(
+        90deg,
+        var(--w2k-inactive-title-left),
+        var(--w2k-inactive-title-right)
+    ) !important;
+
     color: var(--w2k-inactive-title-text) !important;
 }
 
 
-.trinity-window .title-bar-text {
-    overflow: hidden;
+/* =========================================================
+   TITLE TEXT
+   ========================================================= */
 
+.trinity-window .title-bar-text {
+    min-width: 0;
+
+    margin-right: 8px;
+
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    line-height: 14px;
 }
 
 
 /* =========================================================
-   TITLE BAR CONTROL BUTTONS
+   MINIMIZE / MAXIMIZE / CLOSE
    ========================================================= */
 
 .trinity-window .title-bar-controls {
+    display: flex !important;
+    align-items: center;
+
+    margin-left: auto;
+
     flex-shrink: 0;
 }
 
 .trinity-window .title-bar-controls button {
-    background: var(--w2k-surface) !important;
+    padding: 0 !important;
+
+    display: block;
+
+    min-width: 16px !important;
+    width: 16px !important;
+
+    min-height: 14px !important;
+    height: 14px !important;
+
+    margin: 0 !important;
+
+    background-color: var(--w2k-surface) !important;
+
+    /*
+        Do not use background: here.
+
+        98.css supplies the actual Minimize,
+        Maximize, Restore and Close glyphs
+        through background-image.
+    */
 
     box-shadow:
         inset -1px -1px 0 var(--w2k-dk-shadow),
         inset 1px 1px 0 var(--w2k-hilight),
         inset -2px -2px 0 var(--w2k-shadow),
         inset 2px 2px 0 var(--w2k-surface-light) !important;
+
+    flex: 0 0 16px;
+}
+
+.trinity-window .title-bar-controls button + button {
+    margin-left: 2px !important;
 }
 
 .trinity-window .title-bar-controls button:active {
+    padding: 0 !important;
+
     box-shadow:
         inset 1px 1px 0 var(--w2k-dk-shadow),
         inset -1px -1px 0 var(--w2k-hilight),
         inset 2px 2px 0 var(--w2k-shadow) !important;
+}
+
+.trinity-window .title-bar-controls button:focus {
+    outline: none;
 }
 
 
@@ -286,7 +349,8 @@ nav a:hover {
 
     color: var(--w2k-client-text);
 
-    font-family: "Pixelated MS Sans Serif",
+    font-family:
+        "Pixelated MS Sans Serif",
         Tahoma,
         Verdana,
         Arial,
@@ -346,7 +410,8 @@ nav a:hover {
     background: var(--w2k-surface);
     color: var(--w2k-client-text);
 
-    font-family: "Pixelated MS Sans Serif",
+    font-family:
+        "Pixelated MS Sans Serif",
         Tahoma,
         Verdana,
         Arial,
@@ -367,7 +432,7 @@ nav a:hover {
 
 .win-button:active,
 .win-button.active {
-    background: var(--w2k-surface);
+    background: #242424;
 
     box-shadow:
         inset 1px 1px 0 var(--w2k-dk-shadow),
@@ -476,8 +541,9 @@ nav a:hover {
 
     background: linear-gradient(
         0deg,
-        var(--w2k-active-title-left),
-        var(--w2k-active-title-right)
+        #050505 0%,
+        #161616 55%,
+        #303030 100%
     );
 
     border-right: 1px solid var(--w2k-hilight);
@@ -488,7 +554,8 @@ nav a:hover {
 
     transform: rotate(180deg);
 
-    font-family: "Pixelated MS Sans Serif",
+    font-family:
+        "Pixelated MS Sans Serif",
         Tahoma,
         Verdana,
         Arial,
@@ -497,7 +564,7 @@ nav a:hover {
     font-size: 15px;
     font-weight: bold;
 
-    color: white;
+    color: #e0e0e0;
 }
 
 
@@ -526,7 +593,8 @@ nav a:hover {
 
     text-align: left;
 
-    font-family: "Pixelated MS Sans Serif",
+    font-family:
+        "Pixelated MS Sans Serif",
         Tahoma,
         Verdana,
         Arial,
@@ -648,7 +716,8 @@ nav a:hover {
 
     color: var(--w2k-client-text);
 
-    font-family: "Pixelated MS Sans Serif",
+    font-family:
+        "Pixelated MS Sans Serif",
         Tahoma,
         Verdana,
         Arial,
