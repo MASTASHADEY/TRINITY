@@ -319,12 +319,19 @@ nav a:hover {
 
 /* MINIMIZE */
 
-.trinity-window .title-bar-controls button[aria-label="Minimize"]::after {
+.trinity-window
+.title-bar-controls
+button[aria-label="Minimize"]::after {
     content: "";
 
     position: absolute;
 
+    inset: auto;
+
     left: 3px;
+    right: auto;
+
+    top: auto;
     bottom: 2px;
 
     width: 7px;
@@ -338,7 +345,9 @@ nav a:hover {
     transform: none;
 }
 
-.trinity-window .title-bar-controls button[aria-label="Minimize"]:active::after {
+.trinity-window
+.title-bar-controls
+button[aria-label="Minimize"]:active::after {
     transform: translate(1px, 1px);
 }
 
